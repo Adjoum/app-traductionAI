@@ -9,7 +9,7 @@ from gtts import gTTS
 st.set_page_config(page_title='Adjoumani IA', page_icon='🎤')
 
 # Set page title
-st.title("Polyglotte instantané : L'IA qui te fait parler toutes les langues")
+st.title("Adjoumani's AI Speak to Translate")
 
 languages = {
    "Portuguais": "pt",
