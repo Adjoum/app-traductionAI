@@ -1,13 +1,13 @@
 # groq_translation.py
 import json
 from typing import Optional
-
+import streamlit as st
 from decouple import config
 from groq import Groq
 from pydantic import BaseModel
 
 # Set up the Groq client
-client = Groq(api_key=config("GROQ_API_KEY"))
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Model for the translation
 class Translation(BaseModel):
@@ -31,7 +31,7 @@ def groq_translate(query, from_language, to_language):
                 "content": f"Translate '{query}' from {from_language} to {to_language}."
             }
         ],
-        model="mixtral-8x7b-32768",
+        model="llama3-70b-8192",
         temperature=0.2,
         max_tokens=1024,
         stream=False,
